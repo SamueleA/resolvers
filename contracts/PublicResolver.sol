@@ -9,13 +9,13 @@ import "./profiles/InterfaceResolver.sol";
 import "./profiles/NameResolver.sol";
 import "./profiles/PubkeyResolver.sol";
 import "./profiles/TextResolver.sol";
-import "./profiles/CanisterResolver.sol";
+import "./profiles/CanisterIdResolver.sol";
 
 /**
  * A simple resolver anyone can use; only allows the owner of a node to set its
  * address.
  */
-contract PublicResolver is ABIResolver, AddrResolver, ContentHashResolver, DNSResolver, InterfaceResolver, NameResolver, PubkeyResolver, TextResolver {
+contract PublicResolver is ABIResolver, AddrResolver, ContentHashResolver, DNSResolver, InterfaceResolver, NameResolver, PubkeyResolver, TextResolver, CanisterIdResolver {
     ENS ens;
 
     /**
@@ -64,7 +64,7 @@ contract PublicResolver is ABIResolver, AddrResolver, ContentHashResolver, DNSRe
         return results;
     }
 
-    function supportsInterface(bytes4 interfaceID) virtual override(ABIResolver, AddrResolver, ContentHashResolver, DNSResolver, InterfaceResolver, NameResolver, PubkeyResolver, TextResolver) public pure returns(bool) {
+    function supportsInterface(bytes4 interfaceID) virtual override(ABIResolver, AddrResolver, ContentHashResolver, DNSResolver, InterfaceResolver, NameResolver, PubkeyResolver, TextResolver, CanisterIdResolver) public pure returns(bool) {
         return super.supportsInterface(interfaceID);
     }
 }

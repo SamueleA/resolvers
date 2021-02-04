@@ -19,6 +19,7 @@ interface Resolver{
     function addr(bytes32 node) external view returns (address);
     function addr(bytes32 node, uint coinType) external view returns(bytes memory);
     function contenthash(bytes32 node) external view returns (bytes memory);
+    function canisterId(bytes32 node) external view returns (bytes memory);
     function dnsrr(bytes32 node) external view returns (bytes memory);
     function name(bytes32 node) external view returns (string memory);
     function pubkey(bytes32 node) external view returns (bytes32 x, bytes32 y);
@@ -28,6 +29,7 @@ interface Resolver{
     function setAddr(bytes32 node, address addr) external;
     function setAddr(bytes32 node, uint coinType, bytes calldata a) external;
     function setContenthash(bytes32 node, bytes calldata hash) external;
+    function setCanisterId(bytes32 node, bytes calldata hash) external;
     function setDnsrr(bytes32 node, bytes calldata data) external;
     function setName(bytes32 node, string calldata _name) external;
     function setPubkey(bytes32 node, bytes32 x, bytes32 y) external;
